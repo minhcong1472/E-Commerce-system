@@ -6,12 +6,11 @@
 <link rel="stylesheet" href=
 "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-<title>Document</title>
+<title>Shop Ptit</title>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				th:src="@{/images/emsi.png}" src="../static/images/emsi.png"
@@ -28,9 +27,10 @@
 			</button>
 			<nav class="navbar-nav" >
 				<th:block sec:authorize="hasAuthority('ROLE_ADMIN')">
-                    
                     <a class="nav-link active" th:href="@{/admin/}" href="#">Admin Page</a>
-                    <a class="nav-link active" th:href="@{/}" href="#">Home</a>
+                   </th:block>
+                    
+					<a class="nav-link active" th:href="@{/}" href="#">Home</a>
                     <a class="nav-link active" th:href="@{/shop}" href="#">Shop</a>
                     <a class="nav-link active" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">Login</a>
                     <a class="nav-link active" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">Logout</a>
@@ -39,8 +39,6 @@
 						width="auto" height="30" class="d-inline-block align-top" alt="" />
 					</a>
 					<a><span class="nav-link" th:text="${cartCount}">0</span></a> 
-                    </th:block>
-					
 			</nav>
 
 		</div>
