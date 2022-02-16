@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,8 +79,9 @@ public class AdminController {
 	 * 
 	 */
 	@GetMapping("/admin/products")
-	public String getProduct(Model model) {
-		model.addAttribute("products", productService.getAllProduct());
+	public String getProduct(Model model, @Param("keyword") String keyword) {
+		model.addAttribute("products", productService.getAllProduct(keyword));
+		model.addAttribute("keyword", keyword);
 		return "products";
 	}
 

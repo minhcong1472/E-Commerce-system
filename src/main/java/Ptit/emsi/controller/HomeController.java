@@ -1,6 +1,7 @@
 package Ptit.emsi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,18 +20,18 @@ public class HomeController {
 	ProductService productService;
 	
 	@GetMapping({"/","/home"})
-	public String home(Model  model) {
+	public String home(Model  model, @Param("keyword") String keyword) {
 		model.addAttribute("categories",categoryService.getAllCategory());
 		model.addAttribute("cartCount",GlobalData.cart.size());
-		model.addAttribute("products",productService.getAllProduct());
+		model.addAttribute("products",productService.getAllProduct(keyword));
 		return "shop";
 	}
 	
 	@GetMapping("/shop")
-	public String shop(Model model) {
+	public String shop(Model model, @Param("keyword") String keyword) {
 		model.addAttribute("categories",categoryService.getAllCategory());
 		model.addAttribute("cartCount",GlobalData.cart.size());
-		model.addAttribute("products",productService.getAllProduct());
+		model.addAttribute("products",productService.getAllProduct(keyword));
 		return "shop";
 	}
 	@GetMapping("/shop/category/{id}")
