@@ -41,33 +41,27 @@
 </nav>
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome back, Admin</h1>
-    <p>Easily manage your data from this admin <mark>CMS</mark></p>
 </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 pt-3" >
-            <div class="card" style="background-color:white;">
-                <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
-                    <p class="card-text">Manage the categories section here.</p>
-                    <a href="#" th:href="@{/admin/categories}" class="card-link btn btn-primary">Manage</a>
 
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 pt-3" >
-            <div class="card" style="background-color:white;">
-                <div class="card-body">
-                    <h4 class="card-title">Products</h4>
-                    <p class="card-text">Manage all the products here.</p>
-                    <a href="#" th:href="@{/admin/products}" class="card-link btn btn-primary">Manage</a>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+<div class="container">
+		<div class="list-group">
+			<a href="#" th:href="@{/admin/categories}" class="list-group-item list-group-item-action active"
+				aria-current="true">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">Categories</h5>
+				</div>
+			</a> 
+		</div>
+		<div class="list-group">
+			<a href="#" th:href="@{/admin/products}" class="list-group-item list-group-item-action 	">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">Products</h5>
+				</div>
+				
+			
+			</a>
+		</div>
+	</div>
 
 
 
